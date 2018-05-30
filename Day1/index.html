@@ -12,8 +12,20 @@
     <title>Andrew Glyadchenko</title>
   </head>
   <body>
-    <div id="header"><h1>Welcome to Andrew's Website</h1><hr /></div>
-    <div><h5>Just who <i>is</i> Andrew Glyadchenko</h5>
+      <header><nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #e3f2fd;">
+        <div id="header"><a class="navbar-brand" href="#"><h1>Welcome to Andrew's Website</h1></a></div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./about.html">Projects</a>
+                  </li>
+                </ul>
+              </div></nav></header>
+    
+    <div id="topbody"><h5>Just who <i>is</i> Andrew Glyadchenko</h5>
 
     <p>Andrew is a Computer Science graduate from Hunter College. He is 
         currently going through the Hunter CUNY2X Bootcamp Program and 
@@ -27,16 +39,15 @@
         He will be creating the UI using React JS, and help the team connect
         the interface to the backend and hardware, which is prototyped in Node-Red.
     </p><hr /></div>
-    <div><a href="./about.html">Projects</a><hr /></div>
-    <div><h5>Education</h5>
+    <div id="education"><h5>Education</h5>
     <p>Hunter College<br />
     Computer Science<br />
     2014-2018</p>
 
     <p>Staten Island Technical High School<br />
-    2009-2013</p><hr /></div>
+    2009-2013</p></div><hr />
 
-    <div><h5>Work Experience</h5>
+    <div id="work"><h5>Work Experience</h5>
     <p>Amazon Prime Now<br />
     Prime Now Associate<br />
     2017-2018</p>
