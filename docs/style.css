@@ -3,6 +3,10 @@ body {
     padding: 10px;
     
 }
+#container {
+    display: flex;
+    flex-direction: column;
+}
 #topbody {
     padding-top: 100px;
 }
@@ -10,11 +14,13 @@ body {
     border: 2px solid gray;
     border-radius: 10px;
     padding: 10px;
+    background-color: lightgray;
 }
 #work {
     border: 2px solid gray;
     border-radius: 10px;
     padding: 10px;
+    background-color: lightgray;
 }
 #leftimage {
     float: left;
