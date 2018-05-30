@@ -1,0 +1,21 @@
+body {
+    background-color: antiquewhite;
+    padding: 10px;
+    
+}
+#topbody {
+    padding-top: 100px;
+}
+#education {
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+#work {
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+#leftimage {
+    float: left;
+}
