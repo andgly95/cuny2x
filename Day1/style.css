@@ -1,15 +1,7 @@
-
-#name {
-    font-size: 50px;
-    font-family: Helvetica;
+body {
+    background-color: antiquewhite;
 }
-#role {
-    font-size: 25px;
-    font-family: Courier;
-}
-#page {
+#header {
     background-color: lightblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    text-align: center;
 }
