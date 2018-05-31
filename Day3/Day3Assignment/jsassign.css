@@ -1,0 +1,37 @@
+h1 {
+    color: red;
+}
+#flexbox{
+    display: flex;
+    flex-direction: column;
+}
+#form {
+    align-self: center;
+}
+#hovertext{
+    align-self: center;
+    margin-bottom: 50px;
+}
+#argumentcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+.button{
+    /* margin: 100px; */
+}
+#argument{
+    /* margin-top: 100px; */
+}
+#header{
+    height: 100px;
+}
+body {
+    background: #CC95C0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
