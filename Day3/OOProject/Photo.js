@@ -6,11 +6,13 @@ function displayName() {
     document.getElementById("addalbum").remove();
 }
 
-function addPhoto() {
-    let name = document.getElementById("photoname").innerText;
-    let location = document.getElementById("photolocation").innerText;
-    console.log("New Photo Added: "+name);
+function displayPhotos() {
+    myAlbum.displayPhotos();
+}
 
+function addPhoto() {
+    let name = document.getElementById("photoname").value;
+    let location = document.getElementById("photolocation").value;
     myAlbum.addPhoto(name, location);
 }
 
@@ -30,8 +32,8 @@ function Album(name){
         this.size++;
     }
     this.displayPhotos = function(){
-        for(let i=0;i<photos.size();i++){
-            console.log("Photo "+photos[i].name);
+        for(let i=0;i<this.photos.length;i++){
+            console.log("Photo "+this.photos[i].name);
         }
     }
 }
