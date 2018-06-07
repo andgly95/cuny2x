@@ -7,7 +7,8 @@ class App extends Component {
     super(props);
     this.state = {
       list: [],
-      newNote: ""
+      newNote: "",
+      hideNotes: false,
     }
     this.deleteNote = this.deleteNote.bind(this);
   }
@@ -21,7 +22,7 @@ class App extends Component {
     this.setState({ list: [...this.state.list, newNote], newNote: "" });
   }
   deleteNote = (key) => {
-    var filteredItems = this.state.list.filter(item => {return (item.key !== key)});
+    var filteredItems = this.state.list.filter(item => { return (item.key !== key) });
     this.setState({
       list: filteredItems
     })
@@ -30,7 +31,7 @@ class App extends Component {
   starNote = (key) => {
     var newList = this.state.list;
     for (let item of newList) {
-      if (item.key == key){
+      if (item.key == key) {
         item.important = !item.important;
       }
     }
@@ -38,18 +39,26 @@ class App extends Component {
       list: newList
     })
   }
+  showImportant = () => {
+    this.setState({
+      hideNotes: !this.state.hideNotes
+    })
+  }
   render() {
     return (
-      <div className="App" id="container">
-        <header className="App-header">
-          <h1 className="App-title">My To-Do List</h1>
-        </header>
+      <div className="App " id="container">
+      <h1>My TODO App</h1>
         <input
           type="text"
           value={this.state.newNote}
           onChange={event => this.setState({ newNote: event.target.value })} />
         <button onClick={this.addNote}>Add Note</button>
-        <ToDoList list={this.state.list} delete={this.deleteNote} star={this.starNote}/>
+        <ToDoList 
+        list={this.state.list} 
+        delete={this.deleteNote} 
+        star={this.starNote} 
+        hideToggle={this.state.hideNotes}/>
+        <button onClick={this.showImportant}>Toggle Important Notes</button>
       </div>
     );
   }

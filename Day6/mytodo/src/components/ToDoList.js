@@ -12,10 +12,22 @@ class ToDoList extends Component {
         console.log(item);
         var star = "★";
         if (item.important) star = "⭐"
-        return (
-            <li className="li"> <span onClick={() => this.star(item.key)} >{star}</span>{item.text} <span onClick={() => this.delete(item.key)} >🗑️</span>
-           </li>
-        )
+        if (this.props.hideToggle && item.important){
+            return (
+                <li className="list-group-item"> <span onClick={() => this.star(item.key)} >{star}</span>{item.text} <span onClick={() => this.delete(item.key)} >🗑️</span>
+               </li>
+            )
+        }
+        else if (!this.props.hideToggle){
+            return (
+                <li className="list-group-item"> <span onClick={() => this.star(item.key)} >{star}</span>{item.text} <span onClick={() => this.delete(item.key)} >🗑️</span>
+               </li>
+            )
+        }
+        else {
+            return <span></span>
+        }
+        
     }
     delete(key) {
         this.props.delete(key);
@@ -28,7 +40,7 @@ class ToDoList extends Component {
         var listItems = todoEntries.map(this.createTasks);
     
         return (
-            <ul className="col-md-4">{listItems}</ul>
+            <ul className="col-md-4 list-group">{listItems}</ul>
         )
     };
 }
