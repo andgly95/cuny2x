@@ -30,7 +30,7 @@
 #container {
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
+  max-width: 500px;
 }
 .li {
   border-width: 2px;

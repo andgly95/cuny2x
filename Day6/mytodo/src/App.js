@@ -54,10 +54,10 @@ class App extends Component {
           onChange={event => this.setState({ newNote: event.target.value })} />
         <button onClick={this.addNote}>Add Note</button>
         <ToDoList 
-        list={this.state.list} 
-        delete={this.deleteNote} 
-        star={this.starNote} 
-        hideToggle={this.state.hideNotes}/>
+          list={this.state.list} 
+          delete={this.deleteNote} 
+          star={this.starNote} 
+          hideToggle={this.state.hideNotes}/>
         <button onClick={this.showImportant}>Toggle Important Notes</button>
       </div>
     );
