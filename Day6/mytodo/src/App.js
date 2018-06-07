@@ -9,6 +9,7 @@ class App extends Component {
       list: [],
       newNote: ""
     }
+    this.deleteNote = this.deleteNote.bind(this);
   }
   addNote = () => {
     let newNote = {
@@ -19,9 +20,23 @@ class App extends Component {
     }
     this.setState({ list: [...this.state.list, newNote], newNote: "" });
   }
-  deleteNote = (index) => {
-    console.log(index.target.value);
+  deleteNote = (key) => {
+    var filteredItems = this.state.list.filter(item => {return (item.key !== key)});
+    this.setState({
+      list: filteredItems
+    })
     //this.setState({list: this.state.list.splice(index, 1)})
+  }
+  starNote = (key) => {
+    var newList = this.state.list;
+    for (let item of newList) {
+      if (item.key == key){
+        item.important = !item.important;
+      }
+    }
+    this.setState({
+      list: newList
+    })
   }
   render() {
     return (
@@ -34,7 +49,7 @@ class App extends Component {
           value={this.state.newNote}
           onChange={event => this.setState({ newNote: event.target.value })} />
         <button onClick={this.addNote}>Add Note</button>
-        <ToDoList list={this.state.list} onDelete={this.deleteNote}/>
+        <ToDoList list={this.state.list} delete={this.deleteNote} star={this.starNote}/>
       </div>
     );
   }

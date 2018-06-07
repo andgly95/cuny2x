@@ -1,22 +1,36 @@
-import React from 'react';
-import ToDoItem from './ToDoItem.js';
+import React, {Component} from 'react';
+import './../App.css';
 
-const ToDoList = (props) => {
-    const itemList = props.list.map((item, index) => {
-            if (!item.completed) {
-                return(
-                    <ToDoItem item={item} key={index} index={index} onDelete={props.onDelete} />
-                )
-            }
-            else {
-                return(
-                    <div>  </div>
-                )
-            }
-        });
-    return (
-        <ul className="col-md-4">{itemList}</ul>
-    );
+
+class ToDoList extends Component {
+    constructor(props) {
+        super(props);
+     
+        this.createTasks = this.createTasks.bind(this);
+      }
+    createTasks(item) {
+        console.log(item);
+        var star = "★";
+        if (item.important) star = "⭐"
+        return (
+            <li className="li"> <span onClick={() => this.star(item.key)} >{star}</span>{item.text} <span onClick={() => this.delete(item.key)} >🗑️</span>
+           </li>
+        )
+    }
+    delete(key) {
+        this.props.delete(key);
+    }
+    star(key) {
+        this.props.star(key);
+    }
+    render() {
+        var todoEntries = this.props.list;
+        var listItems = todoEntries.map(this.createTasks);
+    
+        return (
+            <ul className="col-md-4">{listItems}</ul>
+        )
+    };
 }
 
 export default ToDoList;

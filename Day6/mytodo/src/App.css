@@ -32,3 +32,6 @@
   flex-flow: column wrap;
   justify-content: center;
 }
+.li {
+  border-width: 2px;
+}

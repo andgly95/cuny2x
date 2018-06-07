@@ -15,7 +15,7 @@ export default class ToDoItem extends Component {
             <li>{this.state.text}
             <button 
             type="submit"
-            onClick={this.props.onDelete}>
+            onClick={this.props.onDelete(this)}>
             <span role="img">🗑️</span></button></li>
         )
     }
