@@ -5,8 +5,8 @@ var prompt = require('prompt');
 var T = new Twit(config);
 
 var params = {
-    q: 'Oculus',
-    count: 10
+    q: 'Hippocrites',
+    count: 2
 }
 
 T.get('search/tweets', params, gotData);
