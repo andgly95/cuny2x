@@ -6,8 +6,8 @@ var T = new Twit(config);
 //
 //  filter the twitter public stream by the word 'mango'.
 //
-var sanFrancisco = [ '-122.75', '36.8', '-121.75', '37.8' ]
-var stream = T.stream('statuses/filter', { track: '#oculusgo #vr', location: sanFrancisco })
+var US = ['-179.1506', '18.9117', '-66.9406', '71.4410' ]
+var stream = T.stream('statuses/filter', { track: '#oculusgo #vr', location: US })
  
 stream.on('tweet', function (tweet) {
   console.log(tweet.text)

@@ -1,0 +1,11 @@
+<div>
+    <h1>My Grocery List</h1>
+    <ul>
+    <% for(var i = 0;i<groceries.length;i++) {%>
+    <h3><%= groceries[i].store %></h3>
+        <% for(var j = 0;j<groceries[i].list.length;j++) {%>
+        <li><%= groceries[i].list[j] %>
+        <% } %>
+    <% } %>
+    </ul>
+</div>
