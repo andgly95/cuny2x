@@ -1,0 +1,10 @@
+html
+    head
+        title= title
+    body
+        h1= "My Grocery List"
+        for store in groceries
+            h3= store.store
+            ul
+            for val in store.list
+                li= val
