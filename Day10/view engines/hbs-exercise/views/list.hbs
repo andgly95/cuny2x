@@ -1,0 +1,12 @@
+<div>
+    <h1>My Grocery List</h1>
+    <ul>
+    {{#each groceries}}
+    <h3>{{this.store}}</h3>
+        {{#each list}}
+        <li>{{this}}</li>
+        {{/each}}
+        {{/each}}
+        
+    </ul>
+</div>
