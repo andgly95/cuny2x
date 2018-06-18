@@ -7,12 +7,14 @@ const pug = require('pug');
 // File System for loading the list of words
 var fs = require('fs');
 
+//Set Template Engine to PUG
 const compiledFunction = pug.compileFile('./views/login.pug')
 app.set('view engine', "pug");
 app.set('views','./views')
 
 app.use(express.static('public'));
 
+//Check if log file exists and then load into log
 var log;
 var exists = fs.existsSync('log.json');
 if (exists) {
@@ -23,11 +25,12 @@ if (exists) {
 
 } else log = {};
 
-app.get('/add/:username/:email', addUser);
+app.get('/add', addUser);
 
 function addUser(req, res) {
-    let username = req.params.username;
-    let email = req.params.email;
+    let username = req.query.username;
+    console.log(req.query);
+    let email = req.query.email;
     log[username] = email;
     var reply = {
         username: username,
@@ -38,17 +41,13 @@ function addUser(req, res) {
     var json = JSON.stringify(log, null, 2);
     fs.writeFile('log.json', json, 'utf8', finished);
     function finished(err) {
-        console.log("Finished writing log");
-        res.send(reply);
+        console.log("Finished writing log" + json);
+        res.render('users', {userlist: JSON.parse(json)});
     }
 }
 
-app.get('/register', function(request, response){
-    response.render('login', console.log(request));
-})
-
-app.post('/register', function(request, response){
-    response.render('login', console.log(request));
+app.get('/', function(request, response){
+    response.render('login', console.log(""));
 })
 
 app.listen(3000, running);
