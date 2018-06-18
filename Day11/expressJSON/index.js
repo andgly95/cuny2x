@@ -1,12 +1,17 @@
 //Using Express
-const app = require('express');
+const express = require('express');
+var app = express();
 //Using Pug for templating engine
-//app.set('view engine', "pug");
+const pug = require('pug');
+
 // File System for loading the list of words
 var fs = require('fs');
 
+const compiledFunction = pug.compileFile('./views/login.pug')
+app.set('view engine', "pug");
+app.set('views','./views')
 
-app.use(app.static('public'));
+app.use(express.static('public'));
 
 var log;
 var exists = fs.existsSync('log.json');
@@ -31,13 +36,23 @@ function addUser(req, res) {
     }
 
     var json = JSON.stringify(log, null, 2);
-    fs.writeFile('log.json', json, utf8, finished);
+    fs.writeFile('log.json', json, 'utf8', finished);
     function finished(err) {
         console.log("Finished writing log");
         res.send(reply);
     }
 }
 
-app.get('/', function(request, response){
-    response.render({})
+app.get('/register', function(request, response){
+    response.render('login', console.log(request));
 })
+
+app.post('/register', function(request, response){
+    response.render('login', console.log(request));
+})
+
+app.listen(3000, running);
+
+function running(err){
+    console.log("Running on port 3000");
+}

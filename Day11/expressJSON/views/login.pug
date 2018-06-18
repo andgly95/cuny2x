@@ -1,0 +1,16 @@
+html
+    head
+        title= "Login Page"
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
+    body
+        h1= "Log In Here:"
+        form(method='GET' action='/add/username/email')
+          div.form-group
+            label(for='username') User Name:
+            input#name.form-control(type='text', placeholder='something unique' name='username')
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          div.form-group
+          button.btn.btn-primary(type='submit') Sign up
+        
